@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import Link from "next/link"; // Next.js Link for page navigation
+import TechLogo from './TechLogo';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,7 +37,9 @@ const Navbar = () => {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 cursor-pointer group">
           <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-cyan-500 rounded-lg shadow-lg shadow-cyan-500/20 group-hover:rotate-12 transition-transform" />
-          <span className="text-xl font-black tracking-tighter text-white uppercase">Techrollin</span>
+          <span className="text-xl font-black tracking-tighter text-white uppercase"><div className="flex items-center">
+  <TechLogo />
+</div></span>
         </Link>
 
         {/* Desktop Navigation */}
