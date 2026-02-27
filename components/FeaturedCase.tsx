@@ -32,7 +32,7 @@ const FeaturedCase = () => {
             <div className="w-full md:w-1/3 flex flex-col items-center justify-center space-y-4">
               {/* SVG Placeholder for Credit Agricole */}
               <div className="w-48 h-48 rounded-2xl bg-white/5 flex items-center justify-center border border-white/5 group-hover:border-white/20 transition-all">
-                <span className="text-white/40 font-bold text-xl tracking-tighter">CRÉDIT AGRICOLE</span>
+                <span className="text-white/40 font-bold text-xl tracking-tighter">CREDIT AGRICOLE</span>
               </div>
               <div className="flex items-center gap-2 text-xs text-cyan-400 font-mono">
                 <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
@@ -43,7 +43,7 @@ const FeaturedCase = () => {
             {/* Case Text Side */}
             <div className="w-full md:w-2/3 text-left">
               <h4 className="text-2xl md:text-3xl font-bold text-white mb-6 leading-tight">
-                Precision AI for Crédit Agricole: Automating complex request-routing in banking.
+                Precision AI for Credit Agricole: Automating complex request-routing in banking.
               </h4>
               <p className="text-slate-400 text-lg leading-relaxed mb-8">
                 We developed a secure, intelligent request-routing system to automate complex workflows within a 
@@ -55,7 +55,7 @@ const FeaturedCase = () => {
                 href="#" 
                 className="inline-flex items-center gap-2 text-white font-semibold group-hover:text-cyan-400 transition-colors"
               >
-                Read the Crédit Agricole Case Study 
+                Read the Credit Agricole Case Study 
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
