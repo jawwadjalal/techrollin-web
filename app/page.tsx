@@ -52,7 +52,9 @@ export default function Home() {
       <div className="reveal-section"><Architecture /></div>
       <div className="reveal-section"><SecurityCompliance /></div>
       <div className="reveal-section"><TestimonialsUSP /></div>
-      <ContactForm />
+      <div className="reveal-section">
+    <ContactForm />
+  </div>
       <Footer/>
     </main>
   );
