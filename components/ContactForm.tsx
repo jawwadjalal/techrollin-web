@@ -48,7 +48,7 @@ export default function ContactForm() {
         {/* Left Side: Text & Info */}
         <div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tighter">
-            READY TO <span className="text-cyan-400">AUTOMATE?.</span>
+            READY TO <span className="text-cyan-400">AUTOMATE?</span>
           </h2>
           <p className="text-gray-400 text-lg mb-8 max-w-md leading-relaxed">
             Let's discuss how our autonomous AI agents can scale your enterprise operations.
