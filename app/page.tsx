@@ -12,7 +12,7 @@ import Architecture from "../components/TechnicalArchitecture";
 import SecurityCompliance from "../components/SecurityCompliance";
 import TestimonialsUSP from "../components/TestimonialsUSP";
 import Footer from "../components/Footer";
-import ContactForm from "../components/ContactForm";
+import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
   
