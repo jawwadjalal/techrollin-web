@@ -1,5 +1,6 @@
+import Script from 'next/script'
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google"; // Fonts import
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,12 +13,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// app/layout.tsx mein Metadata object ko update karein
-export const metadata = {
+export const metadata: Metadata = {
   title: "TechRollin | Enterprise AI Agents",
   description: "Autonomous AI solutions for modern enterprises.",
   robots: {
-    index: false, // Crawlers ko index karne se rokta hai
+    index: false, 
     follow: false,
     nocache: true,
   },
@@ -30,6 +30,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Google Analytics Script - Apni Measurement ID yahan paste karein */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-JT1XTNWTLN"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-JT1XTNWTLN');
+          `}
+        </Script>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning

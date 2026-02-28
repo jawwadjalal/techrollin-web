@@ -11,9 +11,28 @@ body {
   color: #ffffff !important;
   margin: 0;
   padding: 0;
+  overflow-x: hidden; /* Horizontal scroll ko rokne ke liye */
 }
 
 /* Fix for LogoWall and other sections */
 section {
   background-color: transparent;
+}
+
+/* --- Scroll Reveal Animations --- */
+.reveal-section {
+  opacity: 0;
+  transform: translateY(40px); /* Thora zyada slide-up effect ke liye */
+  transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional: Sections ke darmiyan halka sa gap taake animation saaf dikhay */
+.reveal-section {
+  margin-bottom: 2rem;
 }
