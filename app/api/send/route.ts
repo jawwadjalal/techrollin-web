@@ -1,36 +1,41 @@
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
-// API key process.env se uthayi jaye gi
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
   try {
-    // Form data extraction
     const { name, email, subject, message } = await req.json();
 
     const data = await resend.emails.send({
-      // Pehle yahan onboarding@resend.dev tha, ab official email use hoga
+      // Email kahan se aa rahi hai
       from: 'TechRollin Inquiry <inquiry@techrollin.com>',
-      to: ['inquiry@techrollin.com', 'jalaljawwad@gmail.com'], // Dono jagah alert milay ga
-      subject: `New Inquiry: ${subject}`,
-      replyTo: email, // Is se aap direct client ko reply kar saken ge
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+      
+      // Email kahan jani chahiye (Sirf aapka business inbox)
+      to: ['inquiry@techrollin.com'], 
+      
+      subject: `New Web Inquiry: ${subject}`,
+      
+      // Is se jab aap reply karenge toh client ko jayega
+      replyTo: email, 
+      
       html: `
-        <div style="font-family: sans-serif; padding: 20px; color: #333;">
-          <h2 style="color: #0891b2;">New Business Inquiry from TechRollin</h2>
+        <div style="font-family: sans-serif; padding: 20px; color: #333; border: 1px solid #eee;">
+          <h2 style="color: #0891b2; border-bottom: 2px solid #0891b2; padding-bottom: 10px;">New Website Inquiry</h2>
           <p><strong>Client Name:</strong> ${name}</p>
           <p><strong>Client Email:</strong> ${email}</p>
           <p><strong>Subject:</strong> ${subject}</p>
-          <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;" />
-          <p style="white-space: pre-wrap;"><strong>Message:</strong><br />${message}</p>
+          <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; margin-top: 20px;">
+            <p><strong>Message:</strong></p>
+            <p style="white-space: pre-wrap;">${message}</p>
+          </div>
+          <p style="font-size: 12px; color: #999; margin-top: 30px;">This email was sent from the TechRollin contact form.</p>
         </div>
       `,
     });
 
     return NextResponse.json({ success: true, data });
   } catch (error) {
-    console.error("Resend Error:", error);
     return NextResponse.json({ success: false, error });
   }
 }
