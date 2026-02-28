@@ -12,6 +12,7 @@ import Architecture from "../components/TechnicalArchitecture";
 import SecurityCompliance from "../components/SecurityCompliance";
 import TestimonialsUSP from "../components/TestimonialsUSP";
 import Footer from "../components/Footer";
+import ContactForm from "../components/ContactForm";
 
 export default function Home() {
   
@@ -51,7 +52,7 @@ export default function Home() {
       <div className="reveal-section"><Architecture /></div>
       <div className="reveal-section"><SecurityCompliance /></div>
       <div className="reveal-section"><TestimonialsUSP /></div>
-      
+      <div className="reveal-section"><ContactForm /></div>
       <Footer/>
     </main>
   );
