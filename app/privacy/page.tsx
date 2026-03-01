@@ -1,10 +1,9 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+
 
 export default function Privacy() {
   return (
     <main className="min-h-screen bg-[#050505] text-white font-sans">
-      <Navbar />
+    
       <article className="pt-32 pb-20 px-6 max-w-3xl mx-auto prose prose-invert">
         <h1 className="text-4xl font-bold mb-8">Privacy Policy</h1>
         <p className="text-slate-400 mb-6">Last Updated: February 2026</p>
@@ -19,7 +18,7 @@ export default function Privacy() {
           </div>
         </section>
       </article>
-      <Footer />
+    
     </main>
   );
 }

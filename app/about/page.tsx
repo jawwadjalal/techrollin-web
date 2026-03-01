@@ -1,10 +1,9 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+
 
 export default function About() {
   return (
     <main className="min-h-screen bg-[#050505] text-white">
-      <Navbar />
+      
       <section className="pt-32 pb-20 px-6 max-w-4xl mx-auto">
         <h1 className="text-5xl font-extrabold tracking-tighter mb-8">About TechRollin</h1>
         <div className="space-y-6 text-slate-400 text-lg leading-relaxed">
@@ -20,7 +19,6 @@ export default function About() {
           </div>
         </div>
       </section>
-      <Footer />
     </main>
   );
 }

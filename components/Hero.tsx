@@ -65,15 +65,15 @@ const Hero = () => {
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-5 mt-12 justify-center items-center">
   {/* Primary: Let's Talk Strategy */}
-  <Link href="/contact" className="w-full sm:w-auto">
-    <motion.button 
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      className="w-full px-10 py-5 bg-white text-black font-extrabold rounded-2xl flex items-center justify-center gap-3 shadow-2xl shadow-cyan-500/20 hover:bg-cyan-500 transition-all text-lg uppercase tracking-tight"
-    >
-      Let’s Talk Strategy <ArrowUpRight size={22} strokeWidth={3} />
-    </motion.button>
-  </Link>
+<a href="#contact-form-section" className="w-full sm:w-auto">
+  <motion.button 
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    className="w-full px-10 py-5 bg-white text-black font-extrabold rounded-2xl flex items-center justify-center gap-3 shadow-2xl shadow-cyan-500/20 hover:bg-cyan-500 transition-all text-lg uppercase tracking-tight"
+  >
+    Let’s Talk Strategy <ArrowUpRight size={22} strokeWidth={3} />
+  </motion.button>
+</a>
 
   {/* Secondary: View Our AI Portfolio */}
   <Link href="/#featured" className="w-full sm:w-auto">

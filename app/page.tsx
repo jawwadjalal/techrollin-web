@@ -1,17 +1,15 @@
-"use client"; // Animation ke liye client-side zaroori hai
+"use client";
 
 import { useEffect } from "react";
-import Navbar from "../components/Navbar";
+// Navbar aur Footer yahan se hata diye kyunke wo Layout.tsx mein pehle se hain
 import Hero from "../components/Hero";
 import LogoWall from "../components/LogoWall";
 import FeaturedCase from "../components/FeaturedCase";
-{/*import ServicesGrid from "../components/ServicesGrid";*/}
 import PerformanceStats from "../components/PerformanceStats";
 import ProcessRoadmap from "../components/ProcessRoadmap";
 import Architecture from "../components/TechnicalArchitecture";
 import SecurityCompliance from "../components/SecurityCompliance";
 import TestimonialsUSP from "../components/TestimonialsUSP";
-import Footer from "../components/Footer";
 import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
@@ -37,25 +35,31 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#050505] text-white overflow-x-hidden">
-      <Navbar />
-      
-      {/* Hero section foran nazar aana chahiye, is liye is par reveal nahi lagaya */}
+    <main className="bg-[#050505] text-white overflow-x-hidden">
+      {/* Hero section: Navbar layout se aa rahi hai, is liye direct Hero shuru kiya */}
       <Hero />
 
       {/* Baqi saare sections scroll par reveal honge */}
       <div className="reveal-section"><LogoWall /></div>
       <div className="reveal-section"><FeaturedCase /></div>
-      {/*<div className="reveal-section"><ServicesGrid /></div>*/}
+      
+      {/* Performance aur Roadmap sections */}
       <div className="reveal-section"><PerformanceStats /></div>
       <div className="reveal-section"><ProcessRoadmap /></div>
+      
+      {/* Technical architecture aur Security */}
       <div className="reveal-section"><Architecture /></div>
       <div className="reveal-section"><SecurityCompliance /></div>
+      
+      {/* Social Proof */}
       <div className="reveal-section"><TestimonialsUSP /></div>
+      
+      {/* Contact Form: Is section ki ID ContactForm ke andar honi chahiye */}
       <div className="reveal-section">
-    <ContactForm />
-  </div>
-      <Footer/>
+        <ContactForm />
+      </div>
+
+      {/* Footer yahan se hata diya gaya hai kyunke layout.tsx isay handle kar raha hai */}
     </main>
   );
 }

@@ -59,7 +59,7 @@ export default function ServicesPage() {
 
       {/* Call to Action */}
       <a 
-        href="#contact" 
+        href="/contact?service=ai-agents#contact-form-section"
         className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-full transition-all duration-300 shadow-lg shadow-blue-500/20"
       >
         Build My Agent 🚀
@@ -130,7 +130,7 @@ agent.run("Optimize Enterprise Workflow");
 
       {/* Call to Action */}
       <a 
-        href="#contact" 
+        href="/contact?service=self-hosted-llm#contact-form-section"
         className="inline-block bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-10 rounded-full transition-all duration-300 shadow-lg shadow-purple-500/20"
       >
         Deploy Privately 🔒
@@ -214,7 +214,7 @@ agent.run("Optimize Enterprise Workflow");
 
       {/* Call to Action */}
       <a 
-        href="#contact" 
+        href="/contact?service=ai-agents#contact-form-section"
         className="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-10 rounded-full transition-all duration-300 shadow-lg shadow-emerald-500/20"
       >
         Deploy Your AI Bot 💬
@@ -295,7 +295,7 @@ agent.run("Optimize Enterprise Workflow");
 
       {/* Call to Action */}
       <a 
-        href="#contact" 
+        href="/contact?service=ai-agents#contact-form-section"
         className="inline-block bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 px-10 rounded-full transition-all duration-300 shadow-lg shadow-orange-500/20"
       >
         Integrate Now ⚡
@@ -370,7 +370,7 @@ agent.run("Optimize Enterprise Workflow");
 
       {/* Call to Action */}
       <a 
-        href="#contact" 
+        href="/contact?service=automation#contact-form-section"
         className="inline-block bg-pink-600 hover:bg-pink-700 text-white font-bold py-4 px-10 rounded-full transition-all duration-300 shadow-lg shadow-pink-500/20"
       >
         Optimize My Business 📈
@@ -457,7 +457,7 @@ agent.run("Optimize Enterprise Workflow");
 
       {/* Call to Action */}
       <a 
-        href="#contact" 
+        href="/contact?service=web-dev#contact-form-section" 
         className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-full transition-all duration-300 shadow-lg shadow-blue-500/20"
       >
         Launch Your App 💻
@@ -541,7 +541,7 @@ agent.run("Optimize Enterprise Workflow");
 
       {/* Call to Action */}
       <a 
-        href="#contact" 
+        href="/contact?service=web-dev#contact-form-section" 
         className="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-4 px-10 rounded-full transition-all duration-300 shadow-lg shadow-cyan-500/20"
       >
         Start Mobile Project 📱

@@ -1,17 +1,40 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { Mail, Send } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 
-export default function ContactForm() {
-  // --- Backend Logic Start ---
+function ContactFormInner() {
+  const searchParams = useSearchParams();
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    subject: "AI Agent Development",
+    subject: "AI Agent Development", 
     message: "",
   });
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState("");
+
+  useEffect(() => {
+    const service = searchParams.get("service");
+    if (service) {
+      // Keys matching URL parameters -> Values matching <option value="...">
+      const serviceMap: { [key: string]: string } = {
+        "ai-agents": "AI Agent Development",
+        "self-hosted-llm": "Self-Hosted LLM",
+        "conversational-ai": "Conversational AI",
+        "chatgpt": "ChatGPT Integration",
+        "automation": "Workflow Automation",
+        "web-dev": "Web App Development",
+        "mobile-dev": "Mobile App Development",
+        "consulting": "Enterprise Consulting"
+      };
+
+      if (serviceMap[service]) {
+        setFormData((prev) => ({ ...prev, subject: serviceMap[service] }));
+      }
+    }
+  }, [searchParams]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,17 +60,16 @@ export default function ContactForm() {
       setLoading(false);
     }
   };
-  // --- Backend Logic End ---
 
   return (
-    <section className="py-24 px-6 bg-[#050505] relative overflow-hidden">
+    <section id="contact-form-section" className="py-24 px-6 bg-[#050505] relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/10 blur-[120px] rounded-full -z-10" />
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         
         {/* Left Side: Text & Info */}
         <div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tighter">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tighter text-white uppercase">
             READY TO <span className="text-cyan-400">AUTOMATE?</span>
           </h2>
           <p className="text-gray-400 text-lg mb-8 max-w-md leading-relaxed">
@@ -96,16 +118,24 @@ export default function ContactForm() {
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm text-gray-400 font-medium ml-1">Subject</label>
-              <select 
-                value={formData.subject}
-                onChange={(e) => setFormData({...formData, subject: e.target.value})}
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-cyan-500/50 transition-all text-white appearance-none"
-              >
-                <option value="AI Agent Development" className="bg-[#050505]">AI Agent Development</option>
-                <option value="Workflow Automation" className="bg-[#050505]">Workflow Automation</option>
-                <option value="Enterprise Consulting" className="bg-[#050505]">Enterprise Consulting</option>
-              </select>
+              <label className="text-sm text-gray-400 font-medium ml-1">Interested Service</label>
+              <div className="relative">
+                <select 
+                  value={formData.subject}
+                  onChange={(e) => setFormData({...formData, subject: e.target.value})}
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-cyan-500/50 transition-all text-white appearance-none cursor-pointer"
+                >
+                  <option value="AI Agent Development" className="bg-[#050505]">Custom AI Agent & LLM</option>
+                  <option value="Self-Hosted LLM" className="bg-[#050505]">Self-Hosted Infrastructure</option>
+                  <option value="Conversational AI" className="bg-[#050505]">Conversational AI / Chatbots</option>
+                  <option value="ChatGPT Integration" className="bg-[#050505]">ChatGPT Integration</option>
+                  <option value="Workflow Automation" className="bg-[#050505]">Business Process Automation</option>
+                  <option value="Web App Development" className="bg-[#050505]">Custom Web App Dev</option>
+                  <option value="Mobile App Development" className="bg-[#050505]">Mobile App Development</option>
+                  <option value="Enterprise Consulting" className="bg-[#050505]">Enterprise AI Consulting</option>
+                </select>
+                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">▼</div>
+              </div>
             </div>
 
             <div className="space-y-2">
@@ -135,8 +165,15 @@ export default function ContactForm() {
             )}
           </form>
         </div>
-
       </div>
     </section>
+  );
+}
+
+export default function ContactForm() {
+  return (
+    <Suspense fallback={<div className="py-24 text-center bg-[#050505] text-white">Loading Form...</div>}>
+      <ContactFormInner />
+    </Suspense>
   );
 }
