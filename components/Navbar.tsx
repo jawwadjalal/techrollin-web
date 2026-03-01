@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
-import Link from "next/link"; // Next.js Link for page navigation
+import Link from "next/link"; 
 import TechLogo from './TechLogo';
 
 const Navbar = () => {
@@ -17,9 +17,23 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Updated navLinks with the new Services Page route
+  // --- Scroll Logic Inject Start ---
+  const handleContactClick = (e: React.MouseEvent) => {
+    // Agar hum Home page par hain toh smooth scroll force karein
+    if (window.location.pathname === '/') {
+      e.preventDefault();
+      const element = document.getElementById("contact-form-section");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", "#contact-form-section");
+      }
+      setMobileMenuOpen(false); // Mobile menu close karne ke liye
+    }
+  };
+  // --- Scroll Logic Inject End ---
+
   const navLinks = [
-    { name: "Services", href: "/services" }, // Naya Services Page Link
+    { name: "Services", href: "/services" }, 
     { name: "Process", href: "/#process" },
     { name: "About", href: "/about" },
     { name: "Security", href: "/#compliance" },
@@ -57,14 +71,15 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* CTA Button - Links to Contact Page */}
-      <div className="hidden md:block">
-  <a href="/#contact-form-section">
-    <button className="px-6 py-2.5 bg-white text-black text-sm font-bold rounded-xl hover:bg-cyan-500 transition-all flex items-center gap-2">
-      Contact Us <ArrowUpRight size={16} />
-    </button>
-  </a>
-</div>
+        {/* CTA Button - Desktop */}
+        <div className="hidden md:block">
+          <Link href="/#contact-form-section" onClick={handleContactClick}>
+            <button className="px-6 py-2.5 bg-white text-black text-sm font-bold rounded-xl hover:bg-cyan-500 transition-all flex items-center gap-2">
+              Contact Us <ArrowUpRight size={16} />
+            </button>
+          </Link>
+        </div>
+
         {/* Mobile Toggle */}
         <button 
           className="md:hidden text-white"
@@ -91,7 +106,8 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
+          {/* CTA Button - Mobile */}
+          <Link href="/#contact-form-section" onClick={handleContactClick}>
             <button className="w-full py-4 bg-white text-black font-bold rounded-xl">
               Contact Us
             </button>
