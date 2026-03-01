@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import LogoWall from "../components/LogoWall";
 import FeaturedCase from "../components/FeaturedCase";
-import ServicesGrid from "../components/ServicesGrid";
+{/*import ServicesGrid from "../components/ServicesGrid";*/}
 import PerformanceStats from "../components/PerformanceStats";
 import ProcessRoadmap from "../components/ProcessRoadmap";
 import Architecture from "../components/TechnicalArchitecture";
@@ -46,7 +46,7 @@ export default function Home() {
       {/* Baqi saare sections scroll par reveal honge */}
       <div className="reveal-section"><LogoWall /></div>
       <div className="reveal-section"><FeaturedCase /></div>
-      <div className="reveal-section"><ServicesGrid /></div>
+      {/*<div className="reveal-section"><ServicesGrid /></div>*/}
       <div className="reveal-section"><PerformanceStats /></div>
       <div className="reveal-section"><ProcessRoadmap /></div>
       <div className="reveal-section"><Architecture /></div>
