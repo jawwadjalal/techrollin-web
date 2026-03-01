@@ -59,7 +59,7 @@ const Navbar = () => {
 
         {/* CTA Button - Links to Contact Page */}
       <div className="hidden md:block">
-  <a href="#contact-form-section">
+  <a href="/#contact-form-section">
     <button className="px-6 py-2.5 bg-white text-black text-sm font-bold rounded-xl hover:bg-cyan-500 transition-all flex items-center gap-2">
       Contact Us <ArrowUpRight size={16} />
     </button>

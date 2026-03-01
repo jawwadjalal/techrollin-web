@@ -15,10 +15,26 @@ function ContactFormInner() {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState("");
 
+  // --- Security Logic Start ---
+  const [mathChallenge, setMathChallenge] = useState({ num1: 0, num2: 0 });
+  const [userAnswer, setUserAnswer] = useState("");
+
+  const generateChallenge = () => {
+    setMathChallenge({
+      num1: Math.floor(Math.random() * 9) + 1,
+      num2: Math.floor(Math.random() * 5) + 1
+    });
+    setUserAnswer("");
+  };
+
+  useEffect(() => {
+    generateChallenge();
+  }, []);
+  // --- Security Logic End ---
+
   useEffect(() => {
     const service = searchParams.get("service");
     if (service) {
-      // Keys matching URL parameters -> Values matching <option value="...">
       const serviceMap: { [key: string]: string } = {
         "ai-agents": "AI Agent Development",
         "self-hosted-llm": "Self-Hosted LLM",
@@ -38,6 +54,13 @@ function ContactFormInner() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // --- Math Validation Check ---
+    if (parseInt(userAnswer) !== mathChallenge.num1 + mathChallenge.num2) {
+      setStatus("Error: Incorrect math answer.");
+      return;
+    }
+
     setLoading(true);
     setStatus("Sending...");
 
@@ -51,6 +74,7 @@ function ContactFormInner() {
       if (response.ok) {
         setStatus("Success! Email sent.");
         setFormData({ name: "", email: "", subject: "AI Agent Development", message: "" });
+        generateChallenge(); // Naya sawal reset par
       } else {
         setStatus("Error: Could not send.");
       }
@@ -148,6 +172,24 @@ function ContactFormInner() {
                 placeholder="Tell us about your project..." 
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-cyan-500/50 transition-all text-white resize-none"
               ></textarea>
+            </div>
+
+            {/* --- Math Challenge UI --- */}
+            <div className="space-y-2">
+              <label className="text-sm text-gray-400 font-medium ml-1 uppercase tracking-widest text-[10px]">Human Verification</label>
+              <div className="flex items-center gap-3">
+                <div className="bg-cyan-500/10 border border-cyan-500/20 rounded-xl px-4 py-3 text-cyan-400 font-bold font-mono min-w-[100px] text-center">
+                  {mathChallenge.num1} + {mathChallenge.num2} =
+                </div>
+                <input 
+                  required
+                  type="number"
+                  value={userAnswer}
+                  onChange={(e) => setUserAnswer(e.target.value)}
+                  placeholder="?"
+                  className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-cyan-500/50 transition-all text-white"
+                />
+              </div>
             </div>
 
             <button 

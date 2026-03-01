@@ -638,7 +638,7 @@ agent.run("Optimize Enterprise Workflow");
 
       {/* Call to Action */}
       <a 
-        href="#contact" 
+        href="/#contact-form-section" 
         className="inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold py-4 px-10 rounded-full transition-all duration-300 shadow-lg shadow-amber-500/20"
       >
         Consult Our Engineers 🛠️

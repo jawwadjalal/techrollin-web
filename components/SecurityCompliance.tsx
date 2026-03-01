@@ -73,12 +73,7 @@ const SecurityCompliance = () => {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <button className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-blue-600 hover:text-blue-800 transition-colors">
-            <FileCheck size={18} />
-            Download AI Ethics & Security Whitepaper (PDF)
-          </button>
-        </div>
+        
       </div>
     </section>
   );

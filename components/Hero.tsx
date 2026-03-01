@@ -1,9 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ChevronRight, ShieldCheck } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 import Link from "next/link";
-import { ArrowUpRight, LayoutGrid } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+
 const Hero = () => {
   const [isMounted, setIsMounted] = useState(false);
 
@@ -16,15 +17,15 @@ const Hero = () => {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden px-6 pt-20" style={{ backgroundColor: '#050505' }}>
       
-      {/* --- BACKGROUND GLOWS (Direct Inline Style for Guaranteed Colors) --- */}
+      {/* --- BACKGROUND GLOWS --- */}
       <div className="absolute inset-0 -z-10">
         <div 
           className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full blur-[120px] opacity-40 animate-pulse" 
-          style={{ backgroundColor: '#9333ea' }} // Forced Purple
+          style={{ backgroundColor: '#9333ea' }} 
         />
         <div 
           className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full blur-[120px] opacity-30" 
-          style={{ backgroundColor: '#06b6d4' }} // Forced Cyan
+          style={{ backgroundColor: '#06b6d4' }} 
         />
       </div>
 
@@ -43,7 +44,7 @@ const Hero = () => {
             </span>
           </div>
 
-          {/* EXACT HEADING (As per your requirement) */}
+          {/* HEADING */}
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter leading-[1.05] mb-8" style={{ color: '#ffffff' }}>
             Secure Custom <br />
             <span style={{ 
@@ -62,29 +63,19 @@ const Hero = () => {
             Deploy self-hosted, private solutions that ensure your proprietary information never leaves your infrastructure.
           </p>
 
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-5 mt-12 justify-center items-center">
-  {/* Primary: Let's Talk Strategy */}
-<a href="#contact-form-section" className="w-full sm:w-auto">
-  <motion.button 
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-    className="w-full px-10 py-5 bg-white text-black font-extrabold rounded-2xl flex items-center justify-center gap-3 shadow-2xl shadow-cyan-500/20 hover:bg-cyan-500 transition-all text-lg uppercase tracking-tight"
-  >
-    Let’s Talk Strategy <ArrowUpRight size={22} strokeWidth={3} />
-  </motion.button>
-</a>
-
-  {/* Secondary: View Our AI Portfolio */}
-  <Link href="/#featured" className="w-full sm:w-auto">
-    <motion.button 
-      whileHover={{ scale: 1.05 }}
-      className="w-full px-10 py-5 bg-transparent border-2 border-white/10 text-white font-bold rounded-2xl flex items-center justify-center gap-3 hover:bg-white/5 hover:border-white/30 transition-all text-lg"
-    >
-      <LayoutGrid size={20} className="text-cyan-500" /> View Our AI Portfolio
-    </motion.button>
-  </Link>
-</div>
+          {/* Centered Action Button */}
+          <div className="flex justify-center items-center mt-12">
+            <a href="/#contact-form-section" className="w-full sm:w-auto">
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full px-12 py-5 bg-white text-black font-extrabold rounded-2xl flex items-center justify-center gap-3 shadow-2xl shadow-cyan-500/20 hover:bg-cyan-500 transition-all text-lg uppercase tracking-tight"
+              >
+                Let’s Talk Strategy <ArrowUpRight size={22} strokeWidth={3} />
+              </motion.button>
+            </a>
+          </div>
+          
         </motion.div>
       </div>
     </section>
