@@ -1,33 +1,58 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Twitter, ArrowUpRight, Shield, MapPin, Phone } from "lucide-react";
+import { Mail, Linkedin, Twitter, ArrowUpRight, Shield, MapPin, Phone, Globe } from "lucide-react";
 import Link from "next/link";
+import TechLogo from './TechLogo';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  // Smooth Scroll Logic for CTA
+  const scrollToContact = (e: React.MouseEvent) => {
+    if (window.location.pathname === '/') {
+      e.preventDefault();
+      const element = document.getElementById("contact-form-section");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", "#contact-form-section");
+      }
+    }
+  };
+
   return (
-    <footer className="bg-[#050505] text-white pt-24 pb-12 border-t border-white/5">
+    <footer className="bg-[#050505] text-white pt-24 pb-12 border-t border-white/5 relative overflow-hidden">
+      
+      {/* Background Decorative Glow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-cyan-500/5 blur-[120px] rounded-full -z-10" />
+
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Main CTA Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-center mb-24 gap-12 text-center lg:text-left">
-          <div className="max-w-2xl">
-            <h2 className="text-4xl md:text-6xl font-extrabold tracking-tighter mb-6 uppercase">
-              Ready to <span className="text-cyan-500 text-glow">Techrollin?</span>
+        <div className="flex flex-col lg:flex-row justify-between items-center mb-24 gap-12 text-center lg:text-left p-12 rounded-[40px] bg-white/[0.02] border border-white/5 relative overflow-hidden group">
+          {/* Animated Scanline for Footer CTA */}
+          <motion.div 
+            animate={{ top: ["-100%", "200%"] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+            className="absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent z-0 pointer-events-none"
+          />
+
+          <div className="max-w-2xl relative z-10">
+            <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-6 uppercase italic">
+              Ready to <span className="text-cyan-500">Techrollin?</span>
             </h2>
-            <p className="text-slate-400 text-lg">
+            <p className="text-slate-400 text-lg font-medium">
               Book a strategy call with our lead architects to discuss your custom agentic roadmap.
             </p>
           </div>
-          <Link href="/contact">
+
+          <Link href="/#contact-form-section" onClick={scrollToContact}>
             <motion.button 
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, backgroundColor: "#22d3ee", color: "#000" }}
               whileTap={{ scale: 0.95 }}
-              className="px-10 py-5 bg-white text-black font-bold rounded-2xl flex items-center gap-2 text-lg shadow-xl shadow-white/5 hover:bg-cyan-500 transition-colors"
+              className="px-12 py-6 bg-white text-black font-black rounded-2xl flex items-center gap-3 text-lg uppercase tracking-tight transition-all shadow-[0_20px_50px_rgba(255,255,255,0.05)] relative z-10"
             >
-              Start Your Project <ArrowUpRight size={20} />
+              Start Your Project <ArrowUpRight size={22} strokeWidth={3} />
             </motion.button>
           </Link>
         </div>
@@ -36,36 +61,37 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20 border-t border-white/5 pt-16">
           
           {/* Brand Info */}
-          <div className="space-y-6">
-            <div className="text-2xl font-black tracking-tighter flex items-center gap-2 uppercase">
-              <div className="w-6 h-6 bg-cyan-500 rounded-sm" />
-              Techrollin
-            </div>
-            <p className="text-slate-500 text-sm leading-relaxed">
+          <div className="space-y-8">
+            <Link href="/" className="flex items-center gap-2 group">
+               <TechLogo />
+            </Link>
+            <p className="text-slate-500 text-sm leading-relaxed font-medium">
               Leading the shift from simple LLM wrappers to autonomous, secure enterprise agent systems. 
               Engineering the future of work with high-precision AI.
             </p>
-            <div className="flex gap-4">
-              <Linkedin className="text-slate-400 hover:text-white cursor-pointer transition-colors" size={20} />
-              <Twitter className="text-slate-400 hover:text-white cursor-pointer transition-colors" size={20} />
-              <Mail className="text-slate-400 hover:text-white cursor-pointer transition-colors" size={20} />
+            <div className="flex gap-5">
+              {[Linkedin, Twitter, Mail].map((Icon, i) => (
+                <motion.div key={i} whileHover={{ y: -3, color: "#22d3ee" }} className="text-slate-400 cursor-pointer transition-colors">
+                  <Icon size={20} />
+                </motion.div>
+              ))}
             </div>
           </div>
 
           {/* Business Branches */}
           <div>
-            <h4 className="font-bold mb-6 text-sm uppercase tracking-widest text-slate-300">Global Offices</h4>
+            <h4 className="font-black mb-8 text-xs uppercase tracking-[0.2em] text-white italic">Global Offices</h4>
             <ul className="space-y-6">
-              <li className="space-y-1">
-                <span className="block text-white font-bold text-sm">Karachi, Pakistan</span>
-                <div className="flex items-center gap-2 text-slate-500 text-sm">
+              <li className="space-y-1 group">
+                <span className="block text-slate-300 font-bold text-sm group-hover:text-cyan-400 transition-colors">Karachi, Pakistan</span>
+                <div className="flex items-center gap-2 text-slate-500 text-xs font-mono">
                   <Phone size={14} className="text-cyan-500" /> +92 326 2020480
                 </div>
               </li>
-              <li className="space-y-1">
-                <span className="block text-white font-bold text-sm">Wyoming, USA</span>
-                <div className="flex items-center gap-2 text-slate-500 text-sm italic">
-                  <MapPin size={14} className="text-purple-500" /> Phone provided later
+              <li className="space-y-1 group">
+                <span className="block text-slate-300 font-bold text-sm group-hover:text-purple-400 transition-colors">Wyoming, USA</span>
+                <div className="flex items-center gap-2 text-slate-500 text-xs font-mono italic">
+                  <Globe size={14} className="text-purple-500" /> Registered Agent
                 </div>
               </li>
             </ul>
@@ -73,38 +99,43 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold mb-6 text-sm uppercase tracking-widest text-slate-300">Company</h4>
-            <ul className="space-y-4 text-slate-500 text-sm">
-              <li><Link href="/about" className="hover:text-cyan-400 transition-colors">About Us</Link></li>
-              <li><Link href="/contact" className="hover:text-cyan-400 transition-colors">Contact Us</Link></li>
-              <li><Link href="/#services" className="hover:text-cyan-400 transition-colors">AI Services</Link></li>
-              <li><Link href="/#process" className="hover:text-cyan-400 transition-colors">Our Process</Link></li>
+            <h4 className="font-black mb-8 text-xs uppercase tracking-[0.2em] text-white italic">Navigation</h4>
+            <ul className="space-y-4 text-slate-500 text-sm font-medium">
+              {["About Us", "Contact Us", "AI Services", "Our Process"].map((link) => (
+                <li key={link}>
+                  <Link href={`/${link.toLowerCase().replace(' ', '-')}`} className="hover:text-cyan-400 transition-colors flex items-center gap-2 group">
+                    <div className="w-1 h-1 bg-zinc-800 rounded-full group-hover:bg-cyan-500 transition-all" />
+                    {link}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Trust/Compliance */}
           <div>
-            <h4 className="font-bold mb-6 text-sm uppercase tracking-widest text-slate-300">Compliance</h4>
+            <h4 className="font-black mb-8 text-xs uppercase tracking-[0.2em] text-white italic">System Compliance</h4>
             <div className="space-y-4">
-              <div className="flex items-center gap-2 text-xs text-slate-500 font-medium">
-                <Shield size={14} className="text-emerald-500" /> ISO 27001 AUDITED
-              </div>
-              <div className="flex items-center gap-2 text-xs text-slate-500 font-medium">
-                <Shield size={14} className="text-emerald-500" /> SOC2 TYPE II READY
-              </div>
-              <div className="flex items-center gap-2 text-xs text-slate-500 font-medium">
-                <Shield size={14} className="text-emerald-500" /> GDPR COMPLIANT
-              </div>
+              {[
+                { label: "ISO 27001 AUDITED", color: "text-emerald-500" },
+                { label: "SOC2 TYPE II READY", color: "text-cyan-500" },
+                { label: "GDPR COMPLIANT", color: "text-blue-500" }
+              ].map((item) => (
+                <div key={item.label} className="flex items-center gap-3 text-[10px] text-slate-500 font-black tracking-widest bg-white/[0.02] border border-white/5 p-3 rounded-xl hover:border-white/10 transition-all">
+                  <Shield size={14} className={item.color} /> {item.label}
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center border-t border-white/5 pt-8 text-slate-600 text-[10px] uppercase tracking-widest font-bold">
-          <p>© {currentYear} TECHROLLIN SOLUTIONS. ALL RIGHTS RESERVED.</p>
+        <div className="flex flex-col md:flex-row justify-between items-center border-t border-white/5 pt-8 text-slate-600 text-[9px] uppercase tracking-[0.3em] font-black">
+          <p>© {currentYear} TECHROLLIN SOLUTIONS. OPERATING AT SCALE.</p>
           <div className="flex gap-8 mt-4 md:mt-0">
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <span className="hover:text-white cursor-pointer">Terms of Service</span>
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Protocol</Link>
+            <span className="opacity-20">|</span>
+            <span className="text-zinc-800">v4.0.2</span>
           </div>
         </div>
       </div>
