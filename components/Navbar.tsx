@@ -32,10 +32,11 @@ const Navbar = () => {
     }
   };
 
+  // ✅ Simplified Menu: Home, Services, Contact
   const navLinks = [
-    { name: "Services", href: "/services" }, 
-    { name: "Process", href: "/#process" },
-    { name: "Security", href: "/#compliance" },
+    { name: "Home", href: "/" },
+    { name: "Services", href: "/services" },
+    { name: "Contact", href: "/#contact-form-section" },
   ];
 
   return (
@@ -46,7 +47,7 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         
-        {/* ✅ Updated Logo Section: Horizontal Logo + Text Combo */}
+        {/* ✅ Logo Section */}
         <Link href="/" className="flex items-center gap-4 cursor-pointer group"> 
           <div className="relative w-12 h-12 md:w-16 md:h-16 group-hover:scale-110 transition-transform duration-300">
             <Image 
@@ -57,19 +58,19 @@ const Navbar = () => {
               priority
             />
           </div>
-          {/* Text Branding added back */}
           <span className="text-xl md:text-2xl font-black tracking-tighter text-white uppercase group-hover:text-cyan-400 transition-colors">
             Techrollin
           </span>
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        {/* ✅ Desktop Navigation - Only 3 Items */}
+        <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link, index) => (
             <Link 
               key={`${link.name}-${index}`}
               href={link.href}
-              className="text-sm font-medium text-slate-400 hover:text-white transition-colors"
+              onClick={link.name === "Contact" ? handleContactClick : undefined}
+              className="text-sm font-bold text-slate-400 hover:text-white transition-colors uppercase tracking-widest"
             >
               {link.name}
             </Link>
@@ -105,7 +106,10 @@ const Navbar = () => {
             <Link 
               key={`${link.name}-mobile-${index}`}
               href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={(e) => {
+                if (link.name === "Contact") handleContactClick(e);
+                else setMobileMenuOpen(false);
+              }}
               className="text-lg font-medium text-slate-400"
             >
               {link.name}

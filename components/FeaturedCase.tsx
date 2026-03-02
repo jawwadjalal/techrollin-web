@@ -2,10 +2,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Globe, Activity, Lock } from "lucide-react";
-import Image from "next/image"; // ✅ Image import add kiya
+import Image from "next/image";
 
-// 1. Logo ko yahan bhi direct import karein taake Next.js isay recognize kare
-import TechRollinLogo from "../assets/logo.png"; 
+// Bina text wala square logo (Icon)
+import TechRollinLogo from "../assets/logo-horizontal.png"; 
 
 const FeaturedCase = () => {
   const scrollToContact = (e: React.MouseEvent) => {
@@ -43,19 +43,24 @@ const FeaturedCase = () => {
               
               {/* --- Logo Section Start --- */}
               <div className="w-full lg:w-2/5 flex flex-col items-center">
-                <div className="relative w-full aspect-square max-w-[350px] rounded-3xl bg-white/[0.02] border border-white/10 flex items-center justify-center group-hover:border-cyan-500/30 transition-all duration-500">
+                <div className="relative w-full aspect-square max-w-[350px] rounded-3xl bg-white/[0.02] border border-white/10 flex flex-col items-center justify-center group-hover:border-cyan-500/30 transition-all duration-500">
                   <div className="absolute inset-0 bg-cyan-500/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                   
-                  {/* Text hata kar Image component lagaya hai jo bada dikhega */}
-                  <div className="relative w-4/5 h-4/5">
+                  {/* 1. Square Icon (Bina text wala) */}
+                  <div className="relative w-3/5 h-3/5 mb-4">
                     <Image 
                       src={TechRollinLogo} 
-                      alt="Case Study Logo"
+                      alt="TechRollin Icon"
                       fill
                       className="object-contain transition-transform duration-500 group-hover:scale-110"
                       priority
                     />
                   </div>
+
+                  {/* 2. Text Branding (Header style) */}
+                  <span className="text-3xl font-black tracking-tighter text-white uppercase group-hover:text-cyan-400 transition-colors">
+                    Techrollin
+                  </span>
 
                   <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
                     <span className="bg-zinc-900 border border-white/10 text-[9px] px-3 py-1 rounded-full text-zinc-400 font-mono">FINTECH_NODE_v4</span>

@@ -6,9 +6,9 @@ import Hero from "../components/Hero";
 import LogoWall from "../components/LogoWall";
 import FeaturedCase from "../components/FeaturedCase";
 import PerformanceStats from "../components/PerformanceStats";
-import ProcessRoadmap from "../components/ProcessRoadmap";
+{/*import ProcessRoadmap from "../components/ProcessRoadmap";*/}
 import Architecture from "../components/TechnicalArchitecture";
-import SecurityCompliance from "../components/SecurityCompliance";
+{/*import SecurityCompliance from "../components/SecurityCompliance";*/}
 import TestimonialsUSP from "../components/TestimonialsUSP";
 import ContactForm from "@/components/ContactForm";
 
@@ -45,11 +45,11 @@ export default function Home() {
       
       {/* Performance aur Roadmap sections */}
       <div className="reveal-section"><PerformanceStats /></div>
-      <div className="reveal-section"><ProcessRoadmap /></div>
+      {/*<div className="reveal-section"><ProcessRoadmap /></div>*/}
       
       {/* Technical architecture aur Security */}
       <div className="reveal-section"><Architecture /></div>
-      <div className="reveal-section"><SecurityCompliance /></div>
+      {/*<div className="reveal-section"><SecurityCompliance /></div>*/}
       
       {/* Social Proof */}
       <div className="reveal-section"><TestimonialsUSP /></div>

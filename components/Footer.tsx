@@ -109,37 +109,40 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="font-black mb-8 text-xs uppercase tracking-[0.2em] text-white italic">Navigation</h4>
-            <ul className="space-y-4 text-slate-500 text-sm font-medium">
-              <li>
-                <Link 
-                  href="/#contact-form-section" 
-                  onClick={scrollToContact}
-                  className="hover:text-cyan-400 transition-colors flex items-center gap-2 group"
-                >
-                  <div className="w-1 h-1 bg-zinc-800 rounded-full group-hover:bg-cyan-500 transition-all" />
-                  Contact Us
-                </Link>
-              </li>
-
-              {[
-                { name: "Services", href: "/services" },
-                { name: "Our Process", href: "/#process" }
-              ].map((link) => (
-                <li key={link.name}>
-                  <Link 
-                    href={link.href} 
-                    className="hover:text-cyan-400 transition-colors flex items-center gap-2 group"
-                  >
-                    <div className="w-1 h-1 bg-zinc-800 rounded-full group-hover:bg-cyan-500 transition-all" />
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* ✅ Updated Navigation: Home, Services, Contact */}
+<div>
+  <h4 className="font-black mb-8 text-xs uppercase tracking-[0.2em] text-white italic">Navigation</h4>
+  <ul className="space-y-4 text-slate-500 text-sm font-medium">
+    <li>
+      <Link href="/" className="hover:text-cyan-400 transition-colors flex items-center gap-2 group">
+        <div className="w-1 h-1 bg-zinc-800 rounded-full group-hover:bg-cyan-500 transition-all" />
+        Home
+      </Link>
+    </li>
+    <li>
+      <Link href="/services" className="hover:text-cyan-400 transition-colors flex items-center gap-2 group">
+        <div className="w-1 h-1 bg-zinc-800 rounded-full group-hover:bg-cyan-500 transition-all" />
+        Services
+      </Link>
+    </li>
+    <li>
+      <Link 
+        href="/#contact-form-section" 
+        onClick={(e) => {
+          if (window.location.pathname === '/') {
+            e.preventDefault();
+            document.getElementById("contact-form-section")?.scrollIntoView({ behavior: "smooth" });
+            window.history.pushState(null, "", "#contact-form-section");
+          }
+        }}
+        className="hover:text-cyan-400 transition-colors flex items-center gap-2 group"
+      >
+        <div className="w-1 h-1 bg-zinc-800 rounded-full group-hover:bg-cyan-500 transition-all" />
+        Contact
+      </Link>
+    </li>
+  </ul>
+</div>
 
           {/* Trust/Compliance */}
           <div>

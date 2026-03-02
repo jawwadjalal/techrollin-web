@@ -1,3 +1,4 @@
+/*
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
@@ -18,7 +19,7 @@ const ProcessRoadmap = () => {
   return (
     <section id="process" className="py-24 bg-[#050505] text-white border-t border-white/5 relative overflow-hidden">
       
-      {/* Background Decorative Grid Effect */}
+      {/* Background Decorative Grid Effect }
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none" 
            style={{ backgroundImage: `linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)`, backgroundSize: '40px 40px' }} />
 
@@ -40,10 +41,10 @@ const ProcessRoadmap = () => {
           </p>
         </div>
 
-        {/* The Roadmap Grid with Circuit Connections */}
+        {/* The Roadmap Grid with Circuit Connections }
         <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-16 gap-x-12">
           
-          {/* Desktop Connecting Line (Subtle Grid) */}
+          {/* Desktop Connecting Line (Subtle Grid) }
           <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-white/0 via-white/5 to-white/0 hidden lg:block -translate-y-1/2" />
 
           {steps.map((step, index) => (
@@ -56,27 +57,27 @@ const ProcessRoadmap = () => {
               className={`relative group p-8 rounded-[40px] border border-white/5 bg-white/[0.01] hover:border-${step.color}-500/20 transition-all duration-500 flex flex-col items-center lg:items-start text-center lg:text-left min-h-[380px]`}
             >
               
-              {/* Dynamic Step Icon with Unique Glow */}
+              {/* Dynamic Step Icon with Unique Glow }
               <div className="relative mb-8">
-                {/* 1. Behind Icon Glow (Pulsing) */}
+                {/* 1. Behind Icon Glow (Pulsing) }
                 <div className={`absolute inset-0 rounded-full bg-${step.color}-500/20 blur-2xl animate-pulse-slow opacity-0 group-hover:opacity-100 transition-opacity`} />
                 
-                {/* 2. Number Box (The Gate) */}
+                {/* 2. Number Box (The Gate) }
                 <div className={`absolute -top-3 -right-3 w-7 h-7 rounded-full bg-zinc-950 border border-${step.color}-500 text-${step.color}-500 text-xs font-black flex items-center justify-center`}>
                   0{index + 1}
                 </div>
                 
-                {/* 3. Icon Box */}
+                {/* 3. Icon Box }
                 <div className={`w-16 h-16 rounded-2xl bg-zinc-900 border border-white/10 flex items-center justify-center text-${step.color}-400 group-hover:border-${step.color}-500/50 group-hover:text-white transition-all duration-500 relative z-10`}>
                   {step.icon}
                 </div>
               </div>
 
-              {/* Dynamic Glow Strip behind title */}
+              {/* Dynamic Glow Strip behind title }
               <div className={`absolute top-0 right-0 w-32 h-32 blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-500`} 
                    style={{ background: `radial-gradient(circle at top right, ${step.color === 'cyan' ? '#22d3ee' : step.color === 'purple' ? '#a855f7' : step.color === 'emerald' ? '#10b981' : step.color === 'orange' ? '#f59e0b' : step.color === 'red' ? '#ef4444' : '#2563eb'}33, transparent 70%)` }} />
 
-              {/* Title & Description with Color Accents */}
+              {/* Title & Description with Color Accents }
               <div className="relative z-10">
                 <h3 className={`text-2xl font-bold mb-4 tracking-tight uppercase italic group-hover:text-${step.color}-400 transition-colors`}>
                   {step.title}
@@ -86,7 +87,7 @@ const ProcessRoadmap = () => {
                 </p>
               </div>
 
-              {/* Unique Circuit Particle (Decorative) */}
+              {/* Unique Circuit Particle (Decorative) }
               <div className={`absolute -bottom-1 -right-1 opacity-10 group-hover:opacity-100 transition-opacity`}>
                  <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 10, ease: "linear" }} style={{ color: step.color === 'cyan' ? '#22d3ee' : step.color === 'purple' ? '#a855f7' : step.color === 'emerald' ? '#10b981' : step.color === 'orange' ? '#f59e0b' : step.color === 'red' ? '#ef4444' : '#2563eb' }}>
                     <Activity size={12} />
@@ -97,7 +98,7 @@ const ProcessRoadmap = () => {
           ))}
         </div>
 
-        {/* Bottom Trust/Timeline Banner */}
+        {/* Bottom Trust/Timeline Banner }
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -121,3 +122,4 @@ const ProcessRoadmap = () => {
 };
 
 export default ProcessRoadmap;
+*/

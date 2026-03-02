@@ -1,3 +1,4 @@
+/*
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
@@ -38,13 +39,13 @@ const SecurityCompliance = () => {
   return (
     <section id="compliance" className="py-24 bg-[#050505] relative overflow-hidden border-t border-white/5">
       
-      {/* 1. Cyber Grid Background */}
+      {/* 1. Cyber Grid Background }
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none" 
            style={{ backgroundImage: `radial-gradient(circle, #fff 1px, transparent 1px)`, backgroundSize: '30px 30px' }} />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
-        {/* Header with Scanning Line */}
+        {/* Header with Scanning Line }
         <div className="relative mb-20 border-l-4 border-cyan-500 pl-8 py-2">
           <motion.div 
             animate={{ top: ["0%", "100%", "0%"] }}
@@ -59,7 +60,7 @@ const SecurityCompliance = () => {
           </p>
         </div>
 
-        {/* 2. Interactive Hex-style Grid or Glass Cards */}
+        {/* 2. Interactive Hex-style Grid or Glass Cards }
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {complianceFeatures.map((item, index) => (
             <motion.div
@@ -67,7 +68,7 @@ const SecurityCompliance = () => {
               whileHover={{ scale: 1.02, backgroundColor: "rgba(255,255,255,0.03)" }}
               className="group relative p-8 rounded-2xl bg-white/[0.01] border border-white/10 flex flex-col justify-between min-h-[320px] transition-all overflow-hidden"
             >
-              {/* Scanline Effect on Hover */}
+              {/* Scanline Effect on Hover }
               <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/0 via-cyan-500/5 to-cyan-500/0 -translate-y-full group-hover:translate-y-full transition-transform duration-[2000ms] ease-in-out" />
 
               <div>
@@ -92,7 +93,7 @@ const SecurityCompliance = () => {
           ))}
         </div>
 
-        {/* 3. The "Live Status" Bar */}
+        {/* 3. The "Live Status" Bar }
         <div className="mt-12 p-4 bg-zinc-950 border border-white/5 rounded-xl flex flex-wrap items-center justify-between gap-6 px-8">
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
@@ -118,3 +119,4 @@ const SecurityCompliance = () => {
 };
 
 export default SecurityCompliance;
+*/
