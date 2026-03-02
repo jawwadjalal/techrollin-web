@@ -3,12 +3,14 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Mail, Linkedin, Twitter, ArrowUpRight, Shield, MapPin, Phone, Globe } from "lucide-react";
 import Link from "next/link";
-import TechLogo from './TechLogo';
+import Image from "next/image";
+
+// ✅ Horizontal Logo import kiya
+import HorizontalLogo from "../assets/logo-horizontal.png"; 
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  // Smooth Scroll Logic for CTA
   const scrollToContact = (e: React.MouseEvent) => {
     if (window.location.pathname === '/') {
       e.preventDefault();
@@ -30,7 +32,6 @@ const Footer = () => {
         
         {/* Main CTA Section */}
         <div className="flex flex-col lg:flex-row justify-between items-center mb-24 gap-12 text-center lg:text-left p-12 rounded-[40px] bg-white/[0.02] border border-white/5 relative overflow-hidden group">
-          {/* Animated Scanline for Footer CTA */}
           <motion.div 
             animate={{ top: ["-100%", "200%"] }}
             transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
@@ -62,8 +63,19 @@ const Footer = () => {
           
           {/* Brand Info */}
           <div className="space-y-8">
-            <Link href="/" className="flex items-center gap-2 group">
-               <TechLogo />
+            {/* ✅ Updated Logo + Text Combo */}
+            <Link href="/" className="flex items-center gap-4 group">
+              <div className="relative w-12 h-12 md:w-14 md:h-14 group-hover:scale-105 transition-transform duration-300">
+                <Image 
+                  src={HorizontalLogo} 
+                  alt="TechRollin Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-xl md:text-2xl font-black tracking-tighter text-white uppercase group-hover:text-cyan-400 transition-colors">
+                Techrollin
+              </span>
             </Link>
             <p className="text-slate-500 text-sm leading-relaxed font-medium">
               Leading the shift from simple LLM wrappers to autonomous, secure enterprise agent systems. 
@@ -101,11 +113,28 @@ const Footer = () => {
           <div>
             <h4 className="font-black mb-8 text-xs uppercase tracking-[0.2em] text-white italic">Navigation</h4>
             <ul className="space-y-4 text-slate-500 text-sm font-medium">
-              {["About Us", "Contact Us", "AI Services", "Our Process"].map((link) => (
-                <li key={link}>
-                  <Link href={`/${link.toLowerCase().replace(' ', '-')}`} className="hover:text-cyan-400 transition-colors flex items-center gap-2 group">
+              <li>
+                <Link 
+                  href="/#contact-form-section" 
+                  onClick={scrollToContact}
+                  className="hover:text-cyan-400 transition-colors flex items-center gap-2 group"
+                >
+                  <div className="w-1 h-1 bg-zinc-800 rounded-full group-hover:bg-cyan-500 transition-all" />
+                  Contact Us
+                </Link>
+              </li>
+
+              {[
+                { name: "Services", href: "/services" },
+                { name: "Our Process", href: "/#process" }
+              ].map((link) => (
+                <li key={link.name}>
+                  <Link 
+                    href={link.href} 
+                    className="hover:text-cyan-400 transition-colors flex items-center gap-2 group"
+                  >
                     <div className="w-1 h-1 bg-zinc-800 rounded-full group-hover:bg-cyan-500 transition-all" />
-                    {link}
+                    {link.name}
                   </Link>
                 </li>
               ))}

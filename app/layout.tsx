@@ -6,9 +6,14 @@ import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "TechRollin | Enterprise AI & Autonomous Agent Systems",
-  description: "Engineering the future of enterprise intelligence with custom AI agents and scalable software solutions.",
+export const metadata = {
+  title: "TechRollin | Enterprise AI & Autonomous Agents",
+  description: "Next-generation autonomous agent systems for enterprise scale.",
+  icons: {
+    icon: "/icon.png", // Ye auto-detect ho jata hai, par yahan likhna safe hai
+    shortcut: "/icon.png",
+    apple: "/icon.png", // iPhones ke liye
+  },
 };
 
 export default function RootLayout({

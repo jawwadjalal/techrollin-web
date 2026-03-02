@@ -3,7 +3,10 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import Link from "next/link"; 
-import TechLogo from './TechLogo';
+import Image from "next/image";
+
+// Naya Horizontal Logo import kiya
+import HorizontalLogo from "../assets/logo-horizontal.png"; 
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,9 +20,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // --- Scroll Logic Inject Start ---
   const handleContactClick = (e: React.MouseEvent) => {
-    // Agar hum Home page par hain toh smooth scroll force karein
     if (window.location.pathname === '/') {
       e.preventDefault();
       const element = document.getElementById("contact-form-section");
@@ -27,17 +28,14 @@ const Navbar = () => {
         element.scrollIntoView({ behavior: "smooth" });
         window.history.pushState(null, "", "#contact-form-section");
       }
-      setMobileMenuOpen(false); // Mobile menu close karne ke liye
+      setMobileMenuOpen(false); 
     }
   };
-  // --- Scroll Logic Inject End ---
 
   const navLinks = [
     { name: "Services", href: "/services" }, 
     { name: "Process", href: "/#process" },
-    { name: "About", href: "/about" },
     { name: "Security", href: "/#compliance" },
-    { name: "Privacy", href: "/privacy" },
   ];
 
   return (
@@ -48,13 +46,20 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 cursor-pointer group">
-          <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-cyan-500 rounded-lg shadow-lg shadow-cyan-500/20 group-hover:rotate-12 transition-transform" />
-          <span className="text-xl font-black tracking-tighter text-white uppercase">
-            <div className="flex items-center">
-              <TechLogo />
-            </div>
+        {/* ✅ Updated Logo Section: Horizontal Logo + Text Combo */}
+        <Link href="/" className="flex items-center gap-4 cursor-pointer group"> 
+          <div className="relative w-12 h-12 md:w-16 md:h-16 group-hover:scale-110 transition-transform duration-300">
+            <Image 
+              src={HorizontalLogo} 
+              alt="TechRollin Logo"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+          {/* Text Branding added back */}
+          <span className="text-xl md:text-2xl font-black tracking-tighter text-white uppercase group-hover:text-cyan-400 transition-colors">
+            Techrollin
           </span>
         </Link>
 
@@ -106,7 +111,6 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          {/* CTA Button - Mobile */}
           <Link href="/#contact-form-section" onClick={handleContactClick}>
             <button className="w-full py-4 bg-white text-black font-bold rounded-xl">
               Contact Us
