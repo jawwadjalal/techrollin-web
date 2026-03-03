@@ -1,17 +1,23 @@
 @import "tailwindcss";
 
+@theme {
+  /* --- Aapka Naya High-Tech Palette --- */
+  --color-dark-core: #010B12;
+  --color-deep-green: #0C8900;
+  --color-electric-lime: #9CFF00;
+  --color-neon-green: #39FF13;
+  --color-slate-dark: #1E1F21;
+}
+
 :root {
-  --background: #050505;
+  --background: #010B12;
   --foreground: #ffffff;
 }
 
-/* Force dark theme regardless of system settings */
 body {
-  background-color: #050505 !important;
-  color: #ffffff !important;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden; /* Horizontal scroll ko rokne ke liye */
+  background: var(--color-dark-core);
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Fix for LogoWall and other sections */
@@ -22,7 +28,7 @@ section {
 /* --- Scroll Reveal Animations --- */
 .reveal-section {
   opacity: 0;
-  transform: translateY(40px); /* Thora zyada slide-up effect ke liye */
+  transform: translateY(40px); 
   transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
 }
@@ -32,7 +38,12 @@ section {
   transform: translateY(0);
 }
 
-/* Optional: Sections ke darmiyan halka sa gap taake animation saaf dikhay */
 .reveal-section {
   margin-bottom: 2rem;
+}
+
+/* Custom selection color for that Neon feel */
+::selection {
+  background-color: #39FF13;
+  color: #010B12;
 }

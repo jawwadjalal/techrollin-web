@@ -6,7 +6,7 @@ const logos = ["QuantumAI", "NeuralNode", "CyberFlow", "DataStack", "Vertex"];
 
 const LogoWall = () => {
   return (
-    <section className="py-20 border-y border-white/5" style={{ backgroundColor: '#050505' }}>
+    <section className="py-20 border-y border-white/5" style={{ backgroundColor: '#010B12' }}>
       <div className="max-w-7xl mx-auto px-6">
         <p className="text-center text-sm font-medium mb-10 tracking-[0.3em] uppercase" style={{ color: '#64748b' }}>
           Powering Next-Gen Enterprise Workflows
@@ -16,10 +16,11 @@ const LogoWall = () => {
             <motion.span
               key={index}
               initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 0.6, y: 0 }}
+              whileInView={{ opacity: 0.4, y: 0 }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              whileHover={{ opacity: 1, scale: 1.1 }}
-              className="text-white text-xl md:text-2xl font-bold tracking-tighter cursor-default"
+              
+              whileHover={{ opacity: 1, scale: 1.1, color: '#39FF13' }}
+              className="text-white text-xl md:text-2xl font-bold tracking-tighter cursor-default transition-colors duration-300"
             >
               {logo}
             </motion.span>

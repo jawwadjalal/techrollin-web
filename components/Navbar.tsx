@@ -5,7 +5,6 @@ import { Menu, X, ArrowUpRight } from "lucide-react";
 import Link from "next/link"; 
 import Image from "next/image";
 
-// Naya Horizontal Logo import kiya
 import HorizontalLogo from "../assets/logo-horizontal.png"; 
 
 const Navbar = () => {
@@ -32,7 +31,6 @@ const Navbar = () => {
     }
   };
 
-  // ✅ Simplified Menu: Home, Services, Contact
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Services", href: "/services" },
@@ -47,7 +45,6 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         
-        {/* ✅ Logo Section */}
         <Link href="/" className="flex items-center gap-4 cursor-pointer group"> 
           <div className="relative w-12 h-12 md:w-16 md:h-16 group-hover:scale-110 transition-transform duration-300">
             <Image 
@@ -58,35 +55,32 @@ const Navbar = () => {
               priority
             />
           </div>
-          <span className="text-xl md:text-2xl font-black tracking-tighter text-white uppercase group-hover:text-cyan-400 transition-colors">
+          <span className="text-xl md:text-2xl font-black tracking-tighter text-white uppercase group-hover:text-[#39FF13] transition-colors">
             Techrollin
           </span>
         </Link>
 
-        {/* ✅ Desktop Navigation - Only 3 Items */}
         <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link, index) => (
             <Link 
               key={`${link.name}-${index}`}
               href={link.href}
               onClick={link.name === "Contact" ? handleContactClick : undefined}
-              className="text-sm font-bold text-slate-400 hover:text-white transition-colors uppercase tracking-widest"
+              className="text-sm font-bold text-slate-400 hover:text-[#9CFF00] transition-colors uppercase tracking-widest"
             >
               {link.name}
             </Link>
           ))}
         </div>
 
-        {/* CTA Button - Desktop */}
         <div className="hidden md:block">
           <Link href="/#contact-form-section" onClick={handleContactClick}>
-            <button className="px-6 py-2.5 bg-white text-black text-sm font-bold rounded-xl hover:bg-cyan-500 transition-all flex items-center gap-2">
+            <button className="px-6 py-2.5 bg-white text-black text-sm font-bold rounded-xl hover:bg-[#39FF13] transition-all flex items-center gap-2">
               Contact Us <ArrowUpRight size={16} />
             </button>
           </Link>
         </div>
 
-        {/* Mobile Toggle */}
         <button 
           className="md:hidden text-white"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -95,7 +89,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
@@ -110,13 +103,13 @@ const Navbar = () => {
                 if (link.name === "Contact") handleContactClick(e);
                 else setMobileMenuOpen(false);
               }}
-              className="text-lg font-medium text-slate-400"
+              className="text-lg font-medium text-slate-400 hover:text-[#9CFF00]"
             >
               {link.name}
             </Link>
           ))}
           <Link href="/#contact-form-section" onClick={handleContactClick}>
-            <button className="w-full py-4 bg-white text-black font-bold rounded-xl">
+            <button className="w-full py-4 bg-white text-black font-bold rounded-xl hover:bg-[#39FF13]">
               Contact Us
             </button>
           </Link>
