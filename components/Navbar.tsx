@@ -5,7 +5,7 @@ import { Menu, X, ArrowUpRight } from "lucide-react";
 import Link from "next/link"; 
 import Image from "next/image";
 
-import HorizontalLogo from "../assets/logo-horizontal.png"; 
+import HorizontalLogo from "../assets/logo-horizontal.svg";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);

@@ -10,9 +10,9 @@ export const metadata = {
   title: "TechRollin | Enterprise AI & Autonomous Agents",
   description: "Next-generation autonomous agent systems for enterprise scale.",
   icons: {
-    icon: "/icon.png", // Ye auto-detect ho jata hai, par yahan likhna safe hai
-    shortcut: "/icon.png",
-    apple: "/icon.png", // iPhones ke liye
+    icon: "/icon.svg", // Ye auto-detect ho jata hai, par yahan likhna safe hai
+    shortcut: "/icon.svg",
+    apple: "/icon.svg", // iPhones ke liye
   },
 };
 

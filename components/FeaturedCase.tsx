@@ -5,7 +5,7 @@ import { ArrowUpRight, Globe, Activity, Lock } from "lucide-react";
 import Image from "next/image";
 
 // Bina text wala square logo (Icon)
-import TechRollinLogo from "../assets/logo-horizontal.png"; 
+import HorizontalLogo from "../assets/logo-horizontal.svg"; 
 
 const FeaturedCase = () => {
   const scrollToContact = (e: React.MouseEvent) => {
@@ -51,7 +51,7 @@ const FeaturedCase = () => {
                   {/* 1. Square Icon */}
                   <div className="relative w-3/5 h-3/5 mb-4">
                     <Image 
-                      src={TechRollinLogo} 
+                      src={HorizontalLogo} 
                       alt="TechRollin Icon"
                       fill
                       className="object-contain transition-transform duration-500 group-hover:scale-110"
