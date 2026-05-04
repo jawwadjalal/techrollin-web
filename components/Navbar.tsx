@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react"; 
 import Link from "next/link"; 
 import Image from "next/image";
 
@@ -46,18 +46,16 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         
         <Link href="/" className="flex items-center gap-4 cursor-pointer group"> 
-          <div className="relative w-12 h-12 md:w-16 md:h-16 group-hover:scale-110 transition-transform duration-300">
+          {/* Logo Size fixed for visibility */}
+          <div className="relative w-36 h-10 md:w-48 md:h-12 group-hover:scale-105 transition-transform duration-300">
             <Image 
               src={HorizontalLogo} 
               alt="TechRollin Logo"
               fill
-              className="object-contain"
+              className="object-contain object-left"
               priority
             />
           </div>
-          <span className="text-xl md:text-2xl font-black tracking-tighter text-white uppercase group-hover:text-[#39FF13] transition-colors">
-            Techrollin
-          </span>
         </Link>
 
         <div className="hidden md:flex items-center gap-10">
@@ -66,7 +64,7 @@ const Navbar = () => {
               key={`${link.name}-${index}`}
               href={link.href}
               onClick={link.name === "Contact" ? handleContactClick : undefined}
-              className="text-sm font-bold text-slate-400 hover:text-[#9CFF00] transition-colors uppercase tracking-widest"
+              className="text-sm font-bold text-slate-400 hover:text-[#39FF13] transition-colors uppercase tracking-widest"
             >
               {link.name}
             </Link>
@@ -103,7 +101,7 @@ const Navbar = () => {
                 if (link.name === "Contact") handleContactClick(e);
                 else setMobileMenuOpen(false);
               }}
-              className="text-lg font-medium text-slate-400 hover:text-[#9CFF00]"
+              className="text-lg font-medium text-slate-400 hover:text-[#39FF13]"
             >
               {link.name}
             </Link>

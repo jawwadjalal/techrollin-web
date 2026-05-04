@@ -61,7 +61,6 @@ const FeaturedCase = () => {
 
                   {/* 2. Text Branding */}
                   <span className="text-3xl font-black tracking-tighter text-white uppercase group-hover:text-electric-lime transition-colors">
-                    Techrollin
                   </span>
 
                   <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
