@@ -63,17 +63,15 @@ const Footer = () => {
           {/* Brand Info */}
           <div className="space-y-8">
             <Link href="/" className="flex items-center gap-4 group">
-              <div className="relative w-12 h-12 md:w-14 md:h-14 group-hover:scale-105 transition-transform duration-300">
+              {/* Logo size restricted to be professional, not huge */}
+              <div className="relative w-32 h-10 group-hover:scale-105 transition-transform duration-300">
                 <Image 
                   src={HorizontalLogo} 
                   alt="TechRollin Logo"
                   fill
-                  className="object-contain"
+                  className="object-contain object-left"
                 />
               </div>
-              <span className="text-xl md:text-2xl font-black tracking-tighter text-white uppercase group-hover:text-[#39FF13] transition-colors">
-                Techrollin
-              </span>
             </Link>
             <p className="text-slate-500 text-sm leading-relaxed font-medium">
               Leading the shift from simple LLM wrappers to autonomous, secure enterprise agent systems. 

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar"; 
+import GlobalNav from "@/components/Navbar"; 
 import Footer from "@/components/Footer"; 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -27,7 +27,7 @@ export default function RootLayout({
       <body className={`${inter.className} bg-black text-white antialiased`}>
         
         {/* Navbar globally yahan rahegi */}
-        <Navbar />
+        <GlobalNav /> 
         
         {/* Main content area */}
         <main className="min-h-screen">

@@ -38,55 +38,59 @@ const Navbar = () => {
   ];
 
   return (
-    <nav 
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
-        isScrolled ? "py-4 bg-black/80 backdrop-blur-xl border-b border-white/5" : "py-6 bg-transparent"
-      }`}
-    >
+    <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
+      isScrolled ? "py-3 bg-black/90 backdrop-blur-xl border-b border-white/5" : "py-6 bg-transparent"
+    }`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         
-        <Link href="/" className="flex items-center gap-4 cursor-pointer group"> 
-          {/* Logo Size fixed for visibility */}
-          <div className="relative w-36 h-10 md:w-48 md:h-12 group-hover:scale-105 transition-transform duration-300">
+        {/* 1. LOGO - Stays on the Left */}
+        <Link href="/" className="flex-shrink-0 cursor-pointer"> 
+          <div className={`relative transition-all duration-300 ${isScrolled ? "w-20 md:w-24" : "w-24 md:w-28"}`}>
             <Image 
               src={HorizontalLogo} 
               alt="TechRollin Logo"
-              fill
-              className="object-contain object-left"
+              width={120}
+              height={35}
+              className="object-contain"
               priority
             />
           </div>
         </Link>
 
+        {/* 2. RIGHT GROUP - Links and Button together */}
         <div className="hidden md:flex items-center gap-10">
-          {navLinks.map((link, index) => (
-            <Link 
-              key={`${link.name}-${index}`}
-              href={link.href}
-              onClick={link.name === "Contact" ? handleContactClick : undefined}
-              className="text-sm font-bold text-slate-400 hover:text-[#39FF13] transition-colors uppercase tracking-widest"
-            >
-              {link.name}
-            </Link>
-          ))}
-        </div>
+          {/* Navigation Links */}
+          <div className="flex items-center gap-8 lg:gap-10">
+            {navLinks.map((link, index) => (
+              <Link 
+                key={`${link.name}-${index}`}
+                href={link.href}
+                onClick={link.name === "Contact" ? handleContactClick : undefined}
+                className="text-[13px] font-black text-slate-400 hover:text-[#39FF13] transition-colors uppercase tracking-widest whitespace-nowrap"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
 
-        <div className="hidden md:block">
-          <Link href="/#contact-form-section" onClick={handleContactClick}>
-            <button className="px-6 py-2.5 bg-white text-black text-sm font-bold rounded-xl hover:bg-[#39FF13] transition-all flex items-center gap-2">
-              Contact Us <ArrowUpRight size={16} />
+          {/* CTA Button */}
+          <Link href="/#contact-form-section" onClick={handleContactClick} className="flex-shrink-0">
+            <button className="px-6 py-3 bg-white text-black text-sm font-black rounded-xl hover:bg-[#39FF13] transition-all flex items-center gap-2 uppercase tracking-tight">
+              Contact Us <ArrowUpRight size={18} />
             </button>
           </Link>
         </div>
 
+        {/* Mobile Toggle */}
         <button 
           className="md:hidden text-white"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          {mobileMenuOpen ? <X /> : <Menu />}
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
+      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
@@ -101,13 +105,13 @@ const Navbar = () => {
                 if (link.name === "Contact") handleContactClick(e);
                 else setMobileMenuOpen(false);
               }}
-              className="text-lg font-medium text-slate-400 hover:text-[#39FF13]"
+              className="text-lg font-bold text-slate-400 hover:text-[#39FF13] uppercase tracking-widest"
             >
               {link.name}
             </Link>
           ))}
           <Link href="/#contact-form-section" onClick={handleContactClick}>
-            <button className="w-full py-4 bg-white text-black font-bold rounded-xl hover:bg-[#39FF13]">
+            <button className="w-full py-4 bg-white text-black font-black rounded-xl hover:bg-[#39FF13] uppercase">
               Contact Us
             </button>
           </Link>
