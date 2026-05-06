@@ -60,31 +60,32 @@ const Footer = () => {
         {/* Links Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20 border-t border-white/5 pt-16">
           
-          {/* Brand Info */}
-          <div className="space-y-8">
-            <Link href="/" className="flex items-center gap-4 group">
-              {/* Logo size restricted to be professional, not huge */}
-              <div className="relative w-32 h-10 group-hover:scale-105 transition-transform duration-300">
-                <Image 
-                  src={HorizontalLogo} 
-                  alt="TechRollin Logo"
-                  fill
-                  className="object-contain object-left"
-                />
-              </div>
-            </Link>
-            <p className="text-slate-500 text-sm leading-relaxed font-medium">
-              Leading the shift from simple LLM wrappers to autonomous, secure enterprise agent systems. 
-              Engineering the future of work with high-precision AI.
-            </p>
-            <div className="flex gap-5">
-              {[Linkedin, Twitter, Mail].map((Icon, i) => (
-                <motion.div key={i} whileHover={{ y: -3, color: "#39FF13" }} className="text-slate-400 cursor-pointer transition-colors">
-                  <Icon size={20} />
-                </motion.div>
-              ))}
-            </div>
-          </div>
+         {/* Brand Info */}
+<div className="space-y-6">
+  <Link href="/" className="inline-block group">
+    <div className="relative w-44 h-12 transition-transform duration-300 group-hover:scale-105">
+      <Image 
+        src={HorizontalLogo} 
+        alt="TechRollin Logo"
+        width={100}   // Fixed width for better visibility
+        height={20} 
+        className="object-contain object-Left" // Left align with text
+        priority
+      />
+    </div>
+  </Link>
+  <p className="text-slate-500 text-sm leading-relaxed font-medium max-w-[280px]">
+    Leading the shift from simple LLM wrappers to autonomous, secure enterprise agent systems. 
+    Engineering the future of work with high-precision AI.
+  </p>
+  <div className="flex gap-5 pt-2">
+    {[Linkedin, Twitter, Mail].map((Icon, i) => (
+      <motion.div key={i} whileHover={{ y: -3, color: "#39FF13" }} className="text-slate-400 cursor-pointer transition-colors">
+        <Icon size={20} />
+      </motion.div>
+    ))}
+  </div>
+</div>
 
           {/* Business Branches */}
           <div>
